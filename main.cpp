@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Fleury.h"
+#include "PCC.h"
 
 using namespace std;
 
@@ -12,9 +12,9 @@ int main(){
 	
 	leMapa(&G);
 	
-	
 	PCC(G,0);
+	
+	cout << "Custo da rota: " << G.custo << endl;
 
-		
 	return 0;
 }

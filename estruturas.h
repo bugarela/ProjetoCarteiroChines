@@ -2,10 +2,6 @@
 #include "grafo.h"
 using namespace std;
 
-bool compara(Aresta a, Aresta b){
-	return a.peso < b.peso; 
-}
-
 
 void removeNo(int no, Grafo *G){
 	

@@ -6,7 +6,7 @@ bool ehPonte(int a, int b, Grafo G, set<int> nosRestantes){
 	
 	Grafo GTemp = G;
 	removeAresta(a,b,&GTemp);
-	if((busca(0,G,nosRestantes)).empty())
+	if((busca(0,GTemp,nosRestantes)).empty())
 		return false;	
 	return true;
 }
@@ -52,15 +52,14 @@ void PCC(Grafo G, int noInicial){
 				break;
 		}
 		
-		
+		cout << ">";
 		removeAresta(noAtual,noDestino,&GTemp); // remove a aresta escolhida
-		cout << noAtual << " " << noDestino << endl;
+		cout << noAtual << " a " << noDestino << " pela rua " << G.nomes[noAtual][noDestino] << " (" << G.pesos[noAtual][noDestino] << ")" << endl;
 		c++;
 
 		
 		
 		if(GTemp.listaAdj[noAtual].size() == 0 && noAtual != noInicial){ // se o nó ficar desconexo e não for o nó inicial, remove ele
-			
 			nosRestantes.erase(noAtual);
 			d++;
 		
@@ -69,8 +68,6 @@ void PCC(Grafo G, int noInicial){
 		noAtual = noDestino;
 	
 	}	
-	cout << "d: " << d << endl;
-	imprimeListaAdj(GTemp);
-	cout << noAtual << " " << noDestino << endl;
+
 	
 }	
