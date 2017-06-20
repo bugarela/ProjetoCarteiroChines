@@ -11,6 +11,8 @@ int main(){
 	Grafo G;
 	
 	leMapa(&G);
+	
+	
 	PCC(G,0);
 
 		

@@ -24,9 +24,22 @@ void removeNo(int no, Grafo *G){
 
 void removeAresta(int a, int b, Grafo *G){
 		
+	for(int i=0;i<G->listaAdj[b].size();i++)
+		if(G->listaAdj[b][i] == a) // remove as conexões de b para a
+			G->listaAdj[b].erase(G->listaAdj[b].begin()+i);
+	
+		
 	for(int i=0;i<G->listaAdj[a].size();i++)
 		if(G->listaAdj[a][i] == b) // remove as conexões de a para b
 			G->listaAdj[a].erase(G->listaAdj[a].begin()+i);
-	
 
+}
+
+void imprimeListaAdj(Grafo G){
+	for(int no=0; no<G.listaAdj.size(); no++){
+		cout << no << ": ";
+		for(int conexao : G.listaAdj[no])
+			cout << conexao << " ";
+		cout << endl;
+	}
 }
